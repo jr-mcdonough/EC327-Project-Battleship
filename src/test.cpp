@@ -75,11 +75,36 @@ int NumberOfShips()//get the number of ships
     return c;
 }
  
-void SetShips()//SetShips(): The default board is a matrix filled with zeros as shown in the function Show(), the function SetShip() will choose a random location (x,y) on the board to place a ship there and replaces the value of 0 by 1 at location (x,y). It will loop until it has placed the number of ships according to the int maxships value.
+void SetCruisers()//3 units length,2 cruisers per game
+{
+                //generate a random location on the board
+        int x = rand() % rows;
+        int y = rand() % elements;
+             //Check if there is already a ship in that location
+        matrix[x][y] = 1;
+		matrix[x+1][y] = 1;
+		matrix[x+2][y] = 1;
+                //generate a random location on the board
+        int z = rand() % rows;
+        int h = rand() % elements;
+             //Check if there is already a ship in that location
+		while(z!=x&&z!=x+1&&z!=x+2&&h!=y&&h!=y+1&&h!=y+2)
+		{
+			z = rand() % rows;
+        	h = rand() % elements;
+		}
+		matrix[z][h] = 1;
+		matrix[z][h+1] = 1;
+		matrix[z][h+2] = 1;
+        
+    
+}
+
+void SetFrigate()//SetShips(): The default board is a matrix filled with zeros as shown in the function Show(), the function SetShip() will choose a random location (x,y) on the board to place a ship there and replaces the value of 0 by 1 at location (x,y). It will loop until it has placed the number of ships according to the int maxships value.
 {
         //Generate random ships on board
     int s = 0;
-    while(s < maxships)
+    while(s < maxships-2)
     {
                 //generate a random location on the board
         int x = rand() % rows;
@@ -93,8 +118,16 @@ void SetShips()//SetShips(): The default board is a matrix filled with zeros as 
             s++;
             matrix[x][y] = 1;
         }
+		else
+		{
+			x = rand() % rows;
+        	y = rand() % elements;
+			matrix[x][y] = 1;
+			s++;
+		}
     }
 }
+
   //Attack(): This functions check if the location that the player chooses has a ship or not. If there is a ship at location, change that location value from 1 to 2 and return true, else if there is no ship return false.
 
 bool Attack(int x,int y)
@@ -111,7 +144,8 @@ int main()
 {
     srand(time(NULL));
     Clear();
-    SetShips();
+    SetCruisers();
+	SetFrigate();
     int pos1,pos2,acount=0;
     char prompt;
     cout<<">>>Welcome to Battleship!<<<\n";
@@ -136,7 +170,7 @@ int main()
             ShowFinal();
         }
         acount++;
-        cout << "Number of ships left: " << NumberOfShips() << endl;
+        cout << "Number of units left: " << NumberOfShips() << endl;
         cout << "Do you want to quit (y/n)? "; cin >> prompt;
         if(prompt == 'y')
             break;
