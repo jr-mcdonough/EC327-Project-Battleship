@@ -12,7 +12,8 @@ int maxships = 10;
  
 int matrix[rows][elements];
  
-void Clear()//reset the map
+void Clear()//This function is used to reset the board for the game
+
 {
     for(int i=0; i < rows; i++)
     {
@@ -23,7 +24,8 @@ void Clear()//reset the map
     }
 }
  
-void Show()//user show, only show injured or visible ships
+void Show()//This function is used to show the board to the player
+
 {
     for(int i=0; i < rows; i++)
     {
@@ -55,7 +57,8 @@ void ShowFinal()//the actual location of ship
     cout<<"   ___________________\n";
     cout<<"   0 1 2 3 4 5 6 7 8 9\n";
 }
- 
+ // NumberOfShips(): This functions checks the number of ships remaining on the board after a player has chooses a location to attack.
+
 int NumberOfShips()//get the number of ships
 {
     int c = 0;
@@ -72,21 +75,28 @@ int NumberOfShips()//get the number of ships
     return c;
 }
  
-void SetShips()
+void SetShips()//SetShips(): The default board is a matrix filled with zeros as shown in the function Show(), the function SetShip() will choose a random location (x,y) on the board to place a ship there and replaces the value of 0 by 1 at location (x,y). It will loop until it has placed the number of ships according to the int maxships value.
 {
+        //Generate random ships on board
     int s = 0;
     while(s < maxships)
     {
+                //generate a random location on the board
         int x = rand() % rows;
         int y = rand() % elements;
+             //Check if there is already a ship in that location
+
         if(matrix[x][y] != 1)
         {
+                     //If that location is free, denotes that location with number 1
+
             s++;
             matrix[x][y] = 1;
         }
     }
 }
- 
+  //Attack(): This functions check if the location that the player chooses has a ship or not. If there is a ship at location, change that location value from 1 to 2 and return true, else if there is no ship return false.
+
 bool Attack(int x,int y)
 {
     if(matrix[x][y] == 1)
