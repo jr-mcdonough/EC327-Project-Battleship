@@ -1,68 +1,135 @@
-
 #include <iostream>
 #include <ctime>
-
 using namespace std;
+//0 is no ship or not visible
+//1 is nonvisible ship
+//2 is injured ship
+//Can add file io that store and read highest scores
+const int rows = 10;
+const int elements = 10;
+ 
+int maxships = 10;
+ 
+int matrix[rows][elements];
+ 
+void Clear()//This function is used to reset the board for the game
 
-
-int const rows=10;
-int const columns=rows;
-
-int maxships=10;
-
-int matrix[rows][columns];
-
-//This function is used to reset the board for the game
-void Clear()
 {
     for(int i=0; i < rows; i++)
     {
-        for(int j=0; j <columns; j++)
+        for(int j=0; j < elements; j++)
         {
             matrix[i][j] = 0;
         }
     }
 }
+ 
+void Show()//This function is used to show the board to the player
 
-//This function is used to show the board to the player
-void Show()
 {
     for(int i=0; i < rows; i++)
     {
-        for(int j=0; j < columns; j++)
+        cout<<i<<"| ";
+        for(int j=0; j < elements; j++)
         {
-            cout<< matrix[i][j] << " ";
+            if(matrix[i][j]!=2)
+                cout <<0<< " ";
+            else
+                cout<<matrix[i][j]<<" ";
         }
         cout << endl;
     }
+    cout<<"   ___________________\n";
+    cout<<"   0 1 2 3 4 5 6 7 8 9\n";
 }
 
-/*
- SetShips(): The default board is a matrix filled with zeros as shown in the function Show(), the function SetShip() will choose a random location (x,y) on the board to place a ship there and replaces the value of 0 by 1 at location (x,y). It will loop until it has placed the number of ships according to the int maxships value.
- */
-void SetShips()
+void ShowFinal()//the actual location of ship
 {
-    //Generate random ships on board
-    int s = 0;
-    while(s < maxships)
+    for(int i=0; i < rows; i++)
     {
-        //generate a random location on the board
+        cout<<i<<"| ";
+        for(int j=0; j < elements; j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout<<"   ___________________\n";
+    cout<<"   0 1 2 3 4 5 6 7 8 9\n";
+}
+ // NumberOfShips(): This functions checks the number of ships remaining on the board after a player has chooses a location to attack.
+
+int NumberOfShips()//get the number of ships
+{
+    int c = 0;
+ 
+    for(int i=0; i < rows; i++)
+    {
+        for(int j=0; j < elements; j++)
+        {
+            if(matrix[i][j] == 1)
+                c++;
+        }
+    }
+ 
+    return c;
+}
+ 
+void SetCruisers()//3 units length,2 cruisers per game
+{
+                //generate a random location on the board
         int x = rand() % rows;
-        int y = rand() % columns;
+        int y = rand() % elements;
+             //Check if there is already a ship in that location
+        matrix[x][y] = 1;
+        matrix[x+1][y] = 1;
+        matrix[x+2][y] = 1;
+                //generate a random location on the board
+        int z = rand() % rows;
+        int h = rand() % elements;
+             //Check if there is already a ship in that location
+        while(z!=x&&z!=x+1&&z!=x+2&&h!=y&&h!=y+1&&h!=y+2)
+        {
+            z = rand() % rows;
+            h = rand() % elements;
+        }
+        matrix[z][h] = 1;
+        matrix[z][h+1] = 1;
+        matrix[z][h+2] = 1;
         
-        //Check if there is already a ship in that location
+    
+}
+
+void SetFrigate()//SetShips(): The default board is a matrix filled with zeros as shown in the function Show(), the function SetShip() will choose a random location (x,y) on the board to place a ship there and replaces the value of 0 by 1 at location (x,y). It will loop until it has placed the number of ships according to the int maxships value.
+{
+        //Generate random ships on board
+    int s = 0;
+    while(s < maxships-2)
+    {
+                //generate a random location on the board
+        int x = rand() % rows;
+        int y = rand() % elements;
+             //Check if there is already a ship in that location
+
         if(matrix[x][y] != 1)
         {
-            //If that location is free, denotes that location with number 1
+                     //If that location is free, denotes that location with number 1
+
             s++;
             matrix[x][y] = 1;
+        }
+        else
+        {
+            x = rand() % rows;
+            y = rand() % elements;
+            matrix[x][y] = 1;
+            s++;
         }
     }
 }
 
-/*
- Attack(): This functions check if the location that the player chooses has a ship or not. If there is a ship at location, change that location value from 1 to 2 and return true, else if there is no ship return false.
- */
+  //Attack(): This functions check if the location that the player chooses has a ship or not. If there is a ship at location, change that location value from 1 to 2 and return true, else if there is no ship return false.
+
 bool Attack(int x,int y)
 {
     if(matrix[x][y] == 1)
@@ -72,71 +139,52 @@ bool Attack(int x,int y)
     }
     return false;
 }
-
-/*
- NumberOfShips(): This functions checks the number of ships remaining on the board after a player has chooses a location to attack.
- */
-int NumberOfShips()
+ 
+int main()
 {
-    int counter=0;
+    srand(time(NULL));
+    Clear();
+    SetCruisers();
+    SetFrigate();
+    int pos1,pos2,acount=0;
+    char prompt;
     
-    for(int i=0; i < rows; i++)
+    //Check number of ships
+        int shipRemaining=NumberOfShips();
+        
+    cout<<">>>Welcome to Battleship!<<<\n";
+    cout<<"0 means no ship or hidden ship, 2 means injured ship.\n";
+    cout<<"Goal is to hit every ship under minimum moves.\n";
+    cout<<"Commander please input a coordinate between 0 and "<<rows-1<<" to attack!\n";
+    while(shipRemaining!=0)
     {
-        for(int j=0; j <columns; j++)
+        cout<<">>>>>Battle field<<<<<\n";
+        Show();
+        cout<<"Select weapon: Missle(1), Radar(2)  ";cin>>pos1;//add more functions!!!!
+        if(pos1==1)
         {
-            if(matrix[i][j] == 1)
-                counter++;
+            cout << "Please input coordinate: "; cin >> pos1 >> pos2;
+            if(Attack(pos1,pos2))
+                cout << "Hit!" << endl;
+            else
+                cout << "Sorry no ship at that position!" << endl;
+        }
+        else if(pos1==2)
+        {
+            ShowFinal();
+        }
+        acount++;
+        shipRemaining=NumberOfShips();
+        cout << "Number of units left: " << NumberOfShips() << endl;
+        if (shipRemaining !=0){
+        cout << "Do you want to quit (y/n)? "; cin >> prompt;
+        if(prompt == 'y')
+            break;
         }
     }
- 
-    return counter;
-}
-
-/*
- Game starts with the computer generates random ship on the board, the player is asked to choose a location and the game repeat until there are no ships remaining or the player surrenders.
- */
-int main(){
-    
-    srand(time(NULL));
-        Clear();
-        SetShips();
-        int pos1,pos2;
-        char input;
-    //Check number of ships
-    int shipRemaining=NumberOfShips();
-    
-    cout <<"Welcome to Battleship"<<endl;
-    
-        while(shipRemaining!=0)
-        {
-            cout << "Please input location: "; cin >> pos1 >> pos2;
-            if(Attack(pos1,pos2)){
-                cout << "Ship sunk! :)" << endl;
-            }
-            else{
-                cout << "Sorry no ship at that position!" << endl;
-            }
-            
-            shipRemaining=NumberOfShips();
-            
-            cout << "Number of ships left: " <<shipRemaining << endl;
-            
-            
-            //If there are still ship left, ask player for surrender
-            if (shipRemaining !=0){
-            cout << "Do you want to surrender (y/n)? "; cin >> input;
-                if(input == 'y'){
-                break;
-                }
-            }
-            
-        }
-    
-        cout << "Game over!" << endl;
-        Show();
-        return 0;
+    cout<<"Perform "<<acount<<" moves, ";
+    cout<<maxships-NumberOfShips()<<"ships are hit in the game.\n";
+    cout << "Game over!" << endl;
+    ShowFinal();
     return 0;
 }
-
-
-
