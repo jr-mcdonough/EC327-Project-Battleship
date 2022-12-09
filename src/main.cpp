@@ -1,5 +1,8 @@
 #include <iostream>
 #include <ctime>
+#include"string"
+#include "menu.h"
+
 using namespace std;
 //0 is no ship or not visible
 //1 is nonvisible ship
@@ -142,6 +145,7 @@ bool Attack(int x,int y)
  
 int main()
 {
+    Menu();
     srand(time(NULL));
     Clear();
     SetCruisers();
