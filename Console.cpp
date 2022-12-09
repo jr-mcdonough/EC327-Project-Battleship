@@ -71,11 +71,13 @@ void Console::SetCruisers()//3 units length,2 cruisers per game
                 //generate a random location on the board
         int x = rand() % rows;
         int y = rand() % elements;
-        
              //Check if there is already a ship in that location
         matrix[x][y] = 1;
 		matrix[x+1][y] = 1;
 		matrix[x+2][y] = 1;
+        Cruiser *cruiser1 = new Cruiser(x,y,x+1,y,x+2,y);
+        cruiser_ptr.push_back(cruiser1);
+        ship_ptr.push_back(cruiser1);
                 //generate a random location on the board
         int z = rand() % rows;
         int h = rand() % elements;
@@ -88,6 +90,9 @@ void Console::SetCruisers()//3 units length,2 cruisers per game
 		matrix[z][h] = 1;
 		matrix[z][h+1] = 1;
 		matrix[z][h+2] = 1;
+        Cruiser *cruiser2 = new Cruiser(z,h,z+1,h,z+2,h);
+        cruiser_ptr.push_back(cruiser2);
+        ship_ptr.push_back(cruiser2);
         
     
 }
@@ -112,7 +117,8 @@ void Console::SetFrigate()//SetShips(): The default board is a matrix filled wit
             matrix[x][y] = 1;
             Frigate *newfrigate= new Frigate(x,y);
             frigate_ptr.push_back(newfrigate);
-            ship_ptr[s]=newfrigate;
+            ship_ptr.push_back(newfrigate);
+            //ship_ptr[s]=newfrigate;
             num_frigates+=1;
         }
 		else

@@ -6,10 +6,12 @@ const int rows = 10;
 const int elements = 10;
 class Console{
     protected:
-        Ship* ship_ptr[10];
+        list <Ship*> ship_ptr;
+        //Ship* ship_ptr[10];
         list<Frigate*> frigate_ptr;
         //Frigate* frigate_ptr[10];
-        Cruiser* cruiser_ptr[10];
+        list<Cruiser*>cruiser_ptr;
+        //Cruiser* cruiser_ptr[10];
         int maxships = 10;
         int matrix[rows][elements];
         int num_cruisers;
@@ -26,13 +28,17 @@ class Console{
         bool ShipAttack(int x,int y);
         int GetFrigates();
         Console(){
-            int num_cruisers=0;
+            int num_cruisers=2;
             int num_frigates=7;
             
         }
         ~Console(){
-            for(int i=0;i<maxships;i++){
+            /*for(int i=0;i<maxships;i++){
                 delete ship_ptr[i];
+            }*/
+            list<Ship*>::iterator shipIt;
+            for(shipIt=ship_ptr.begin();shipIt!=ship_ptr.end();++shipIt){
+                delete (*shipIt);
             }
         }
 

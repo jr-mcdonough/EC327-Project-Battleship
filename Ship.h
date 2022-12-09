@@ -11,7 +11,6 @@ class Ship{
     //void SelfDraw(char *ptr); 
     Ship();
     virtual bool isHit()=0;
-    virtual bool attack(int x, int y)=0;
     
     ~Ship(){
         cout<<"Ship deleted"<<endl;
