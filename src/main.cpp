@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include "coordinate.h"
 #include"string"
 #include "menu.h"
 
@@ -14,6 +15,29 @@ const int elements = 10;
 int maxships = 10;
  
 int matrix[rows][elements];
+
+//Function check if two coordinates are the same, if yes return true
+bool checkSamePoint(const Coordinate c1, const Coordinate c2){
+    if (c1.x==c2.x && c1.y == c2.y){
+        return true;
+    }else
+        return false;
+}
+
+//Function check the length between two coordinates
+int findLength(const Coordinate c1, const Coordinate c2){
+    int length;
+    length=c2.y-c1.y;
+    return length;
+}
+//Function check if the two coordinates are either vertically or horizontally straight, if straight return true
+bool checkStraight(const Coordinate c1, const Coordinate c2){
+    if (c1.x==c2.x || c1.y==c2.y){
+        return true;
+    }else
+        return false;
+}
+
  
 void Clear()//This function is used to reset the board for the game
 
@@ -152,6 +176,9 @@ int main()
     SetFrigate();
     int pos1,pos2,acount=0;
     char prompt;
+    bool samePointCheck;
+    bool straightCheck;
+    int length;
     
     //Check number of ships
         int shipRemaining=NumberOfShips();
@@ -159,6 +186,152 @@ int main()
     cout<<">>>Welcome to Battleship!<<<\n";
     cout<<"0 means no ship or hidden ship, 2 means injured ship.\n";
     cout<<"Goal is to hit every ship under minimum moves.\n";
+    
+    /*
+     User first input the location of the ships,then the player and computer takes turn guessing one another ship's position
+     */
+    cout<<"You will have 5 different ship types with different sizes to assign a location, they are the following: "<<endl;
+    cout<<"Destroyer - 2 squares"<<endl;
+    cout<<"Submarine - 3 squares"<<endl;
+    cout<<"Cruiser - 3 squares"<<endl;
+    cout<<"Battleship - 4 squares"<<endl;
+    cout<<"Carrier - 5 squares"<<endl;
+    
+    cout<<"Please note that you can only position them vertically or horizontally straight and with correct dimension."<<endl;
+    
+    
+    int coordX,coordY;
+    cout<<"Please choose the starting coordinate for Destroyer (2 squares) (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate iCoord(coordX,coordY); //Initial Destroyer coordinate
+    cout<<"Please choose the ending coordinate for Destroyer (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate fCoord(coordX,coordY); //Final Destroyer coordinate
+    
+    samePointCheck=checkSamePoint(iCoord,fCoord);
+    length=findLength(iCoord,fCoord);
+    straightCheck=checkStraight(iCoord,fCoord);
+    
+    //Check validity of input
+    while (samePointCheck==true || straightCheck ==false || length !=2){
+        cout<<"Invalid output! Please enter a valid endpoint."<<endl;
+        cin>> coordX >>coordY;
+        Coordinate fCoord(coordX,coordY);
+        samePointCheck=checkSamePoint(iCoord,fCoord);
+        length=findLength(iCoord,fCoord);
+        straightCheck=checkStraight(iCoord,fCoord);
+    }
+    
+    //ASSIGN COORDINATE TO DESTROYER OBJECT!!!!
+    
+    cout<<"Please choose the starting coordinate for Submarine (3 squares) (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate iCoordS(coordX,coordY); //Initial Submarine coordinate
+    cout<<"Please choose the ending coordinate for Submarine (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate fCoordS(coordX,coordY); //Final Submarine coordinate
+    
+    samePointCheck=checkSamePoint(iCoordS,fCoordS);
+    length=findLength(iCoordS,fCoordS);
+    straightCheck=checkStraight(iCoordS,fCoordS);
+    
+    //Check validity of input
+    while (samePointCheck==true || straightCheck ==false || length !=3){
+        cout<<"Invalid output! Please enter a valid endpoint."<<endl;
+        cin>> coordX >>coordY;
+        Coordinate fCoordS(coordX,coordY); //Final Submarine coordinate
+        samePointCheck=checkSamePoint(iCoordS,fCoordS);
+        length=findLength(iCoordS,fCoordS);
+        straightCheck=checkStraight(iCoordS,fCoordS);
+    }
+    
+    //ASSIGN COORDINATE TO SUBMARINE OBJECT!!!
+    
+    cout<<"Please choose the starting coordinate for Cruiser (3 squares) (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate iCoordC(coordX,coordY); //Initial Cruiser coordinate
+    cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate fCoordC(coordX,coordY); //Final Cruiser coordinate
+    
+    samePointCheck=checkSamePoint(iCoordC,fCoordC);
+    length=findLength(iCoordC,fCoordC);
+    straightCheck=checkStraight(iCoordC,fCoordC);
+    
+    //Check validity of input
+    while (samePointCheck==true || straightCheck ==false || length !=3){
+        cout<<"Invalid output! Please enter a valid endpoint."<<endl;
+        cin>> coordX >>coordY;
+        Coordinate fCoordC(coordX,coordY); //Final Cruiser coordinate
+        samePointCheck=checkSamePoint(iCoordC,fCoordC);
+        length=findLength(iCoordC,fCoordC);
+        straightCheck=checkStraight(iCoordC,fCoordC);
+    }
+    
+    //ASSIGN COORDINATE TO CRUISER OBJECT!!!
+  
+    cout<<"Please choose the starting coordinate for Battleship (4 squares) (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate iCoordB(coordX,coordY); //Initial Battleship coordinate
+    cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate fCoordB(coordX,coordY); //Final Battleship coordinate
+    
+    samePointCheck=checkSamePoint(iCoordB,fCoordB);
+    length=findLength(iCoordB,fCoordB);
+    straightCheck=checkStraight(iCoordB,fCoordB);
+    
+    //Check validity of input
+    while (samePointCheck==true || straightCheck ==false || length !=4){
+        cout<<"Invalid output! Please enter a valid endpoint."<<endl;
+        cin>> coordX >>coordY;
+        Coordinate fCoordB(coordX,coordY); //Final Battleship coordinate
+        samePointCheck=checkSamePoint(iCoordB,fCoordB);
+        length=findLength(iCoordB,fCoordB);
+        straightCheck=checkStraight(iCoordB,fCoordB);
+    }
+    
+    //ASSIGN COORDINATE TO BATTLESHIP OBJECT!!!
+    
+    cout<<"Please choose the starting coordinate for Carrier (5 squares) (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate iCoordCS(coordX,coordY); //Initial Carrier coordinate
+    cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
+    cin>> coordX >>coordY;
+    Coordinate fCoordCS(coordX,coordY); //Final Carrier coordinate
+    
+    samePointCheck=checkSamePoint(iCoordCS,fCoordCS);
+    length=findLength(iCoordCS,fCoordCS);
+    straightCheck=checkStraight(iCoordCS,fCoordCS);
+    
+    //Check validity of input
+    while (samePointCheck==true || straightCheck ==false || length !=5){
+        cout<<"Invalid output! Please enter a valid endpoint."<<endl;
+        cin>> coordX >>coordY;
+        Coordinate fCoordCS(coordX,coordY); //Final Carrier coordinate
+        samePointCheck=checkSamePoint(iCoordCS,fCoordCS);
+        length=findLength(iCoordCS,fCoordCS);
+        straightCheck=checkStraight(iCoordCS,fCoordCS);
+    }
+    
+    //ASSIGN COORDINATE TO CARRIER OBJECT!!!
+    
+    
+    /*
+     Implement function to check if input coordinate has already been taken!!
+     Implement function to make AI chooses random positions to put its 5 ships
+     Implement function for player and AI to take turn guessing one another ship until one side has lost all their ships
+     */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     cout<<"Commander please input a coordinate between 0 and "<<rows-1<<" to attack!\n";
     while(shipRemaining!=0)
     {
