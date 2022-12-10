@@ -99,7 +99,7 @@ cout<<"=========================================================================
 
         cout<<"<Press any key to continue> "<<endl<<endl;
 
-        exit(true);
+        
     }else if(mode == 2){
 
         cout<<endl<<"Admiral, your job is to find out the position of all the enemy ships as quickly as possible. "<<endl;
