@@ -162,7 +162,27 @@ bool Console::ShipAttack(int x,int y)// checks if attack hits ship, if it does t
         }
         else if(hitfrigate==false){
             hitship=false;
-            cout<<"Frigate false"<<endl;
+        }
+    }
+    
+    std::list<Cruiser*>::iterator cruiserIt;
+    for(cruiserIt=cruiser_ptr.begin();cruiserIt!=cruiser_ptr.end();++cruiserIt){
+        hitcruiser=(*cruiserIt)->attack(x,y);
+        if(hitcruiser==true){
+            hitship=true;
+            cout<<"Hit cruiser"<<endl;
+            num_ships=num_ships-1;
+            
+        }
+        else{
+            hitship=false;
+        }
+        if((*cruiserIt)->isHit()==true){
+            cout<<"Cruiser sunk"<<endl;
+            num_cruisers=num_cruisers-1;
+        }
+        else if((*cruiserIt)->isHit()==false){
+            cout<<"Cruiser hit but still survives"<<endl;
         }
     }
     /*for(int j=0;j<num_frigates;j++){
@@ -185,5 +205,9 @@ bool Console::ShipAttack(int x,int y)// checks if attack hits ship, if it does t
 }
 int Console::GetFrigates(){
     return num_frigates;
+}
+void Console::setShip(){
+    SetCruisers();
+    SetFrigate();
 }
  

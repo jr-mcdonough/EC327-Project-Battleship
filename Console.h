@@ -27,6 +27,7 @@ class Console{
         void SetFrigate();
         bool ShipAttack(int x,int y);
         int GetFrigates();
+        void setShip();
         Console(){
             int num_cruisers=2;
             int num_frigates=7;

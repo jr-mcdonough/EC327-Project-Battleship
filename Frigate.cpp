@@ -3,7 +3,7 @@
 using namespace std;
 bool Frigate::attack(int x_in,int y_in){
         if(x_in==shiploc.x && y_in==shiploc.y){
-            cout<<"Hit frigate"<<endl;
+            //cout<<"Hit frigate"<<endl;
             injured_square=injured_square-1;
             return true;
         }
