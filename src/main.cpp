@@ -12,8 +12,16 @@ using namespace std;
 int main()
 {
     Menu();
-    // Make cout to ask users to input difficulties level
-    Instructions(1);
+    int difficultylevel; // 1 is easy; 2 is medium; 3 is hard
+    cout<<endl<<"=========================================================="<<endl<<endl;
+    cout<<"Choose Difficulty Level"<<endl<<endl;
+    cout<<"1. Rookie Seaman"<<endl; //easy
+    cout<<"2. Seasoned Veteran"<<endl;
+    cout<<"3. Legendary Admiral"<<endl;
+    cin>> difficultylevel;
+    
+    // Make conditions to make sure user enter correct choices only
+    Instructions(difficultylevel);
     srand(time(NULL));
     Clear();
     SetCruisers();
