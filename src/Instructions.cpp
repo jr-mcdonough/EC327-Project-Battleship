@@ -111,7 +111,7 @@ cout<<"=========================================================================
         system("read");
 
         cout<<endl<<"You are aimed with 34 missiles and unlimited radar."<<endl;
-        cout<<"Radar reveals general location of enemy ship(s) but never their definite coordinates."<<endl<<endl;
+        cout<<"Radar reveals the general location of enemy ship(s) but never their definite coordinates."<<endl<<endl;
 
         cout<<"<Press any key to continue> "<<endl<<endl;
 
@@ -135,7 +135,7 @@ cout<<"=========================================================================
         system("read");
 
         cout<<endl<<"You are aimed with 34 missiles and 10 uses of radar."<<endl;
-        cout<<"Radar reveals general location of enemy ship(s) but never their definite coordinates."<<endl<<endl;
+        cout<<"Radar reveals the general location of enemy ship(s) but never their definite coordinates."<<endl<<endl;
 
         cout<<"<Press any key to continue> "<<endl<<endl;
 
