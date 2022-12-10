@@ -41,9 +41,19 @@ int main()
     int coordX,coordY;
     cout<<"Please choose the starting coordinate for Destroyer (2 squares) (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate iCoord(coordX,coordY); //Initial Destroyer coordinate
     cout<<"Please choose the ending coordinate for Destroyer (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate fCoord(coordX,coordY); //Final Destroyer coordinate
     
     samePointCheck=checkSamePoint(iCoord,fCoord);
@@ -51,7 +61,7 @@ int main()
     straightCheck=checkStraight(iCoord,fCoord);
     
     //Check validity of input
-    while (samePointCheck==true || straightCheck ==false || length !=2){
+    while (samePointCheck==true || straightCheck ==false || length !=1){
         cout<<"Invalid output! Please enter a valid endpoint."<<endl;
         cin>> coordX >>coordY;
         Coordinate fCoord(coordX,coordY);
@@ -64,17 +74,26 @@ int main()
     
     cout<<"Please choose the starting coordinate for Submarine (3 squares) (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate iCoordS(coordX,coordY); //Initial Submarine coordinate
     cout<<"Please choose the ending coordinate for Submarine (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate fCoordS(coordX,coordY); //Final Submarine coordinate
-    
     samePointCheck=checkSamePoint(iCoordS,fCoordS);
     length=findLength(iCoordS,fCoordS);
     straightCheck=checkStraight(iCoordS,fCoordS);
     
     //Check validity of input
-    while (samePointCheck==true || straightCheck ==false || length !=3){
+    while (samePointCheck==true || straightCheck ==false || length !=2){
         cout<<"Invalid output! Please enter a valid endpoint."<<endl;
         cin>> coordX >>coordY;
         Coordinate fCoordS(coordX,coordY); //Final Submarine coordinate
@@ -87,9 +106,19 @@ int main()
     
     cout<<"Please choose the starting coordinate for Cruiser (3 squares) (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate iCoordC(coordX,coordY); //Initial Cruiser coordinate
     cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate fCoordC(coordX,coordY); //Final Cruiser coordinate
     
     samePointCheck=checkSamePoint(iCoordC,fCoordC);
@@ -97,7 +126,7 @@ int main()
     straightCheck=checkStraight(iCoordC,fCoordC);
     
     //Check validity of input
-    while (samePointCheck==true || straightCheck ==false || length !=3){
+    while (samePointCheck==true || straightCheck ==false || length !=2){
         cout<<"Invalid output! Please enter a valid endpoint."<<endl;
         cin>> coordX >>coordY;
         Coordinate fCoordC(coordX,coordY); //Final Cruiser coordinate
@@ -110,9 +139,19 @@ int main()
   
     cout<<"Please choose the starting coordinate for Battleship (4 squares) (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate iCoordB(coordX,coordY); //Initial Battleship coordinate
-    cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
+    cout<<"Please choose the ending coordinate for Battleship (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate fCoordB(coordX,coordY); //Final Battleship coordinate
     
     samePointCheck=checkSamePoint(iCoordB,fCoordB);
@@ -120,7 +159,7 @@ int main()
     straightCheck=checkStraight(iCoordB,fCoordB);
     
     //Check validity of input
-    while (samePointCheck==true || straightCheck ==false || length !=4){
+    while (samePointCheck==true || straightCheck ==false || length !=3){
         cout<<"Invalid output! Please enter a valid endpoint."<<endl;
         cin>> coordX >>coordY;
         Coordinate fCoordB(coordX,coordY); //Final Battleship coordinate
@@ -143,7 +182,7 @@ int main()
     straightCheck=checkStraight(iCoordCS,fCoordCS);
     
     //Check validity of input
-    while (samePointCheck==true || straightCheck ==false || length !=5){
+    while (samePointCheck==true || straightCheck ==false || length !=4){
         cout<<"Invalid output! Please enter a valid endpoint."<<endl;
         cin>> coordX >>coordY;
         Coordinate fCoordCS(coordX,coordY); //Final Carrier coordinate

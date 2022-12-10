@@ -10,6 +10,7 @@ const int elements = 10;
 bool checkSamePoint(const Coordinate c1, const Coordinate c2);
 int findLength(const Coordinate c1, const Coordinate c2);
 bool checkStraight(const Coordinate c1, const Coordinate c2);
+bool checkPointMargin(const int x, const int y);
 void Clear();
 void Show();
 void ShowFinal();

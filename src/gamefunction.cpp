@@ -1,4 +1,5 @@
 #include "gamefunction.h"
+#include "math.h"
 
 int maxships = 10;
 int matrix[rows][elements];
@@ -10,12 +11,25 @@ bool checkSamePoint(const Coordinate c1, const Coordinate c2){
     }else
         return false;
 }
-
+bool checkPointMargin(const int x, const int y)
+{
+    if(x>9||x<0||y>9||y<0)
+    {
+        return true;
+    }
+    else    
+        return false;
+}
 //Function check the length between two coordinates
 int findLength(const Coordinate c1, const Coordinate c2){
-    int length;
-    length=c2.y-c1.y;
-    return length;
+    int lengthy;
+    lengthy=abs(c2.y-c1.y);
+    int lengthx;
+    lengthx=abs(c1.x-c1.x);
+    if(lengthy>lengthx)
+        return lengthy;
+    else
+        return lengthx;
 }
 //Function check if the two coordinates are either vertically or horizontally straight, if straight return true
 bool checkStraight(const Coordinate c1, const Coordinate c2){

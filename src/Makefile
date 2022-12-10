@@ -1,6 +1,6 @@
 GCC=g++ -std=c++11 -g
 
-OBJS=main.o menu.o coordinate.o Instructions.o
+OBJS=main.o menu.o coordinate.o Instructions.o gamefunction.o 
 
 default: Play
 
@@ -13,6 +13,9 @@ Play: $(OBJS)
 menu.o: menu.cpp menu.h 
 	$(GCC) -c menu.cpp -o menu.o
 	
+gamefunction.o: gamefunction.cpp gamefunction.h
+	$(GCC) -c gamefunction.cpp -o gamefunction.o
+
 main.o: main.cpp menu.h coordinate.h Instructions.h
 	$(GCC) -c main.cpp -o main.o
 
