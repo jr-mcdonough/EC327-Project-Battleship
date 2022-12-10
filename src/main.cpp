@@ -1,5 +1,6 @@
 #include "gamefunction.h"
 #include "menu.h"
+#include "Instructions.h"
 
 using namespace std;
 //0 is no ship or not visible
@@ -11,6 +12,8 @@ using namespace std;
 int main()
 {
     Menu();
+    // Make cout to ask users to input difficulties level
+    Instructions(1);
     srand(time(NULL));
     Clear();
     SetCruisers();
@@ -25,21 +28,6 @@ int main()
     //Check number of ships
         int shipRemaining=NumberOfShips();
         
-    cout<<">>>Welcome to Battleship!<<<\n";
-    cout<<"0 means no ship or hidden ship, 2 means injured ship.\n";
-    cout<<"Goal is to hit every ship under minimum moves.\n";
-    
-    /*
-     User first input the location of the ships,then the player and computer takes turn guessing one another ship's position
-     */
-    cout<<"You have 5 different ship types with different sizes to assign a location, they are the following: "<<endl;
-    cout<<"Destroyer - 2 squares"<<endl;
-    cout<<"Submarine - 3 squares"<<endl;
-    cout<<"Cruiser - 3 squares"<<endl;
-    cout<<"Battleship - 4 squares"<<endl;
-    cout<<"Carrier - 5 squares"<<endl;
-    
-    cout<<"Please note that you can only position them vertically or horizontally straight and with correct dimension."<<endl;
     
     
     int coordX,coordY;
