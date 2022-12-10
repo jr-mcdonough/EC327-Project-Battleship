@@ -49,6 +49,8 @@ void Menu(){
     break;
         case 2:
     cout<<endl<<"        By the Navy Boys"<<endl<<endl<<endl;
+    cout<<"       <Press any key to return to Main Menu >"<<endl;
+    system("read");
     break;
         case 3:
     cout<<endl<<"        Until next time, Admiral !"<<endl;
@@ -58,3 +60,4 @@ void Menu(){
     }while(choice == 2 || choice ==3);
     
     }
+
