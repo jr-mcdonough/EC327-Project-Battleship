@@ -172,9 +172,19 @@ int main()
     
     cout<<"Please choose the starting coordinate for Carrier (5 squares) (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate iCoordCS(coordX,coordY); //Initial Carrier coordinate
     cout<<"Please choose the ending coordinate for Cruiser (x,y): "<<endl;
     cin>> coordX >>coordY;
+    while(checkPointMargin(coordX,coordY))
+    {
+        cout<<"Please input correct points.\n";
+        cin>> coordX >>coordY;
+    }
     Coordinate fCoordCS(coordX,coordY); //Final Carrier coordinate
     
     samePointCheck=checkSamePoint(iCoordCS,fCoordCS);
