@@ -25,7 +25,7 @@ int findLength(const Coordinate c1, const Coordinate c2){
     int lengthy;
     lengthy=abs(c2.y-c1.y);
     int lengthx;
-    lengthx=abs(c1.x-c1.x);
+    lengthx=abs(c2.x-c1.x);
     if(lengthy>lengthx)
         return lengthy;
     else
