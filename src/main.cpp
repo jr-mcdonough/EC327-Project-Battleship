@@ -21,7 +21,7 @@ int main()
     cin>> difficultylevel;
     
     // Make conditions to make sure user enter correct choices only
-    Instructions(difficultylevel);
+    Instruction(difficultylevel);
     srand(time(NULL));
     Clear();
     SetCruisers();
