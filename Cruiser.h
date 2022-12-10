@@ -12,7 +12,7 @@ class Cruiser:public Ship{
         injured_square=num_space;
         sunk=false;
     }
-    Cruiser(int x_in1,int y_in1,int x_in2,int y_in2,int x_in3,int y_in3){
+    Cruiser(int x_in1,int y_in1,int x_in2,int y_in2,int x_in3,int y_in3){//array of coordinate objects to store coordinates of cruisers
         Coordinate *c1=new Coordinate(x_in1,y_in1);
         coord_ptr[0]=c1;
         Coordinate *c2=new Coordinate(x_in2,y_in2);

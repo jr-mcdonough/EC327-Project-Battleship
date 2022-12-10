@@ -33,7 +33,7 @@ class Console{
             int num_frigates=7;
             
         }
-        ~Console(){
+        ~Console(){//destructor 
             /*for(int i=0;i<maxships;i++){
                 delete ship_ptr[i];
             }*/

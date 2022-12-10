@@ -167,19 +167,20 @@ bool Console::ShipAttack(int x,int y)// checks if attack hits ship, if it does t
     
     std::list<Cruiser*>::iterator cruiserIt;
     for(cruiserIt=cruiser_ptr.begin();cruiserIt!=cruiser_ptr.end();++cruiserIt){
-        hitcruiser=(*cruiserIt)->attack(x,y);
+        hitcruiser=(*cruiserIt)->attack(x,y);//return true if a ship is hit at coordinate (x,y)
         if(hitcruiser==true){
             hitship=true;
-            cout<<"Hit cruiser"<<endl;
-            num_ships=num_ships-1;
+            cout<<"Hit cruiser"<<endl;//print message for debugging
+            
             
         }
         else{
             hitship=false;
         }
-        if((*cruiserIt)->isHit()==true){
+        if((*cruiserIt)->isHit()==true){//return true if all squares are hit
             cout<<"Cruiser sunk"<<endl;
-            num_cruisers=num_cruisers-1;
+            num_ships=num_ships-1;//reduce number of ships by 1
+            num_cruisers=num_cruisers-1;//reduce number of cruiser by 1
         }
         else if((*cruiserIt)->isHit()==false){
             cout<<"Cruiser hit but still survives"<<endl;
@@ -203,10 +204,10 @@ bool Console::ShipAttack(int x,int y)// checks if attack hits ship, if it does t
     return false;*/
     return hitship;
 }
-int Console::GetFrigates(){
+int Console::GetFrigates(){//return number of frigates(for testing)
     return num_frigates;
 }
-void Console::setShip(){
+void Console::setShip(){//initiliaze grid with ships
     SetCruisers();
     SetFrigate();
 }

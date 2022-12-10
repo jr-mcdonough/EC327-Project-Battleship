@@ -16,7 +16,7 @@ bool Cruiser::attack(double in_x, double in_y){
         return true;
     }
 }
-bool Cruiser::isHit(){
+bool Cruiser::isHit(){//return true if all squares are hit
     if(injured_square==0){
         sunk=true;
         return true;
