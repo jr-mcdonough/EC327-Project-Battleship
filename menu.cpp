@@ -51,6 +51,8 @@ void Menu(){
     break;
         case 2:
     cout<<endl<<"        By the Navy Boys"<<endl<<endl<<endl;
+    cout<<"       <Press any key to return to main menu>"<<endl;
+    system("read");
     break;
         case 3:
     cout<<endl<<"        Until next time, Admiral !"<<endl;
