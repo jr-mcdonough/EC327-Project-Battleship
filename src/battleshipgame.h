@@ -5,25 +5,25 @@ using namespace std;
 
 class battleshipGame 
 {   
-friend istream& operator>>(istream&, battleshipGame&);// overloaded operator
+friend istream& operator>>(istream&, battleshipGame&);
 friend istream& getline(istream&, battleshipGame&);
-friend ostream& operator<<(ostream&, const battleshipGame&);//overloaded operator
+friend ostream& operator<<(ostream&, const battleshipGame&);
 
 
 public:
 battleshipGame();//contructor
 ~battleshipGame();//destructor
 
-void initialize(int);// initialize... cals various functions from board to initialize ship size, ammo, hits, level, and board.
-void theConsole();// shows the ammo available and hits accomplished
-void thelist();//linkedlist... adds each coordinate entered and whether hit or miss..
-int hits;// number of hits user has accomplished
-int ammo;//number of ammo or retrys user has remaining.
+void initialize(int);// initialize ships, ammo, hits, level, and board.
+void theConsole();// ammo available and total number of hits
+void thelist();//
+int hits;// number of hits user got
+int ammo;//number of ammo remaining
 int hity;
 
 private:
-board theBoard;//composition the board.
-ship Submarine;//composition ship... declare a submarine of type ship
-ship Destroyer;// same as above, of type ship
-ship Carrier;// same as above, of type ship
+board theBoard
+ship Submarine;
+ship Destroyer;
+ship Carrier;
 };
