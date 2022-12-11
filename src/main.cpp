@@ -39,7 +39,7 @@ int main()
     char cont;
     
 
-    battleshipGame abjects;
+    battleshipGame objects;
     
     // Make conditions to make sure user enter correct choices only
     
@@ -61,27 +61,27 @@ int main()
 
     if (difficultylevel <= 3 || difficultylevel > 0) {    
       //set difficulty level           
-      abjects.initialize(difficultylevel);
+      objects.initialize(difficultylevel);
     }
     else {
       cout << "INVALID SELECTION" << endl;
     }
     //check ammo and hits, if so end game.
-    while(abjects.ammo > 0 && abjects.hits < 12) {
+    while(objects.ammo > 0 && objects.hits < 12) {
       cout << endl << "INSERT FIRING POSITION. LETTER first (column), and then the NUMBER (row). SPACING BETWEEN THEM IS OPTIONAL" << endl;
       //cin>> abjects;
       cin.clear();
       //cin.ignore();
-      getline(cin, abjects);
+      getline(cin, objects);
 
       
-      if(abjects.hity > 0 ) {
+      if(objects.hity > 0 ) {
         cout <<" Previous shots: " <<endl;
         //linkedlist
-        abjects.thelist();
+        objects.thelist();
         //show the ammo left and hits gotten
-        abjects.theConsole();
-        cout << abjects << endl;
+        objects.theConsole();
+        cout << objects << endl;
       } else {
         cout << "TRY AGAIN" << endl;
       }
@@ -89,7 +89,7 @@ int main()
     cout <<endl;
     cout << setfill(' ') << setw(25) << "GAME OVER." << endl;
    
-    if(abjects.hits==12) {
+    if(objects.hits==12) {
       cout<< "Congratulations, Admiral. You have destroyed all the enemy." << endl;
     }
     else {
