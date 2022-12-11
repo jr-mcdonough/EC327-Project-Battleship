@@ -13,10 +13,7 @@
 
 
 using namespace std;
-//0 is no ship or not visible
-//1 is nonvisible ship
-//2 is injured ship
-//Can add file io that store and read highest scores
+
 void whileCheck(char& a) {
   cout << endl;
   cin.clear();
