@@ -22,7 +22,7 @@ int ammo;//number of ammo remaining
 int hity;
 
 private:
-board theBoard
+board theBoard;
 ship Submarine;
 ship Destroyer;
 ship Carrier;
