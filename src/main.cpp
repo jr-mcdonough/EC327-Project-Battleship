@@ -75,8 +75,13 @@ int main()
       cout << endl << "INSERT FIRING POSITION. LETTER first (column), and then the NUMBER (row). SPACING BETWEEN THEM IS OPTIONAL" << endl;
       //cin>> abjects;
       cin.clear();
-      //cin.ignore();
-      getline(cin, objects);
+      try{
+          getline(cin, objects);
+      }
+      catch(string mystring){
+          getline(cin,objects);
+      }
+      
 
       
       if(objects.hity > 0 ) {

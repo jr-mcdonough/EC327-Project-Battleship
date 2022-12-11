@@ -210,11 +210,14 @@ void board::setCoords(char x, int y){
 
 }
 
-istream& getline (istream& obj, board& xxx)
+istream& getline (istream& obj, board& xxx)//overload getline operator
 {
 
   getline(obj, xxx.hitstr);
-  
+  if(xxx.hitstr.length()==0){
+      cout<<"you entered nothing"<<endl;
+      throw(xxx.hitstr);
+  }
   
   for(int i = 0; i < xxx.hitstr.length(); i++){
     if(xxx.hitstr[i] == ' ') {
@@ -234,6 +237,7 @@ istream& getline (istream& obj, board& xxx)
     
   return obj;
 }
+
 
 istream& operator>>(istream& obj, board& xxx)
 {

@@ -80,7 +80,6 @@ istream& getline(istream& obj, battleshipGame& thisclass)
 
 istream& operator>>(istream& obj, battleshipGame& thisclass)
 {
-
        obj >> thisclass.theBoard;
        return obj;
 }
