@@ -65,7 +65,7 @@ cout<<"=========================================================================
     cout<<"Submarine - 3 squares"<<endl;
     cout<<"Battleship - 4 squares"<<endl;
     cout<<"Carrier - 5 squares"<<endl<<endl;
-    cout<<"There are atleast 3 enemy ships being spotted"<<endl;
+    cout<<"There are atleast 3 enemy ships being spotted"<<endl<<endl;
 
 
     cout<<"<Press any key to continue> "<<endl<<endl;
@@ -81,7 +81,7 @@ cout<<"=========================================================================
     // Now check for mode. The harder the difficulty, the larger the map
     if(mode == 1){
         cout<<endl<<"Admiral, your job is to find out the positions of all the enemy ships as quickly as possible."<<endl;
-        cout<<"You are aimed with 20 missiles to destroy the enemy."<<endl<<endl;
+        cout<<"You are armed with 20 missiles to destroy the enemy."<<endl<<endl;
         cout<<"<Press any key to continue> "<<endl<<endl;
 
         system("read");
@@ -101,7 +101,7 @@ cout<<"=========================================================================
 
         system("read");
 
-        cout<<endl<<"You are aimed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
+        cout<<endl<<"You are armed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
         
 
         cout<<"<Press any key to continue> "<<endl<<endl;
@@ -125,7 +125,7 @@ cout<<"=========================================================================
 
         system("read");
 
-        cout<<endl<<"You are aimed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
+        cout<<endl<<"You are armed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
 
         cout<<"<Press any key to continue> "<<endl<<endl;
 
