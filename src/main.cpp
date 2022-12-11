@@ -97,7 +97,7 @@ int main()
     }
     cout << endl;
     whileCheck(cont);
-  } while(cont == 'Y');
+  } while(cont == 'Y' );
     system ("pause");
     
 }
