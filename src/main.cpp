@@ -100,7 +100,7 @@ int main()
     }
     cout << endl;
     whileCheck(cont);
-  } while(cont == 'y');
+  } while(cont == 'Y');
     system ("pause");
     
 }
