@@ -1,4 +1,3 @@
-
 #include "menu.h"
 
 void Menu(){
@@ -27,9 +26,27 @@ void Menu(){
     system("read");
 
     string username;
-    cout<<"Admiral, what shall we refer to you as (1 word) ?:"<<endl;
-    cin>>username;
-
+    bool validstring=false;
+   
+    while(validstring==false){
+         cout<<"Admiral, what shall we refer to you as (1 word) ?:"<<endl;
+        bool hasSpace=false;
+        getline(std::cin,username);
+        int stringlen=username.size();
+        for(int i=0;i<=stringlen;i++){
+            if(username[i]==' '){
+                hasSpace=true;
+                
+            }
+        }
+        if(hasSpace==false){
+            validstring=true;
+        }
+    }
+   
+    
+    
+    
 
     int choice;
     do{
@@ -60,4 +77,3 @@ void Menu(){
     }while(choice == 2 || choice ==3);
     
     }
-
