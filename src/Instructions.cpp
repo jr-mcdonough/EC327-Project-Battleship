@@ -27,18 +27,18 @@ void Instruction(int mode){
     cout<<"<Press any key to continue> "<<endl;
     system("read");
     cout<<"=================================================================================================================="<<endl<<endl;
-    cout<<endl<<"If you manage to hit a ship, the spot will be represented with 'S'. "<<endl<<endl;
+    cout<<endl<<"If you manage to hit a ship, the spot will be represented with a letter. "<<endl<<endl;
     //show map demo hit ship
 
     cout<<"  | A | B | C | D | E | F | G | H |"<<endl;
-    cout<<" 1| * | S | * | * | * | * | * | * |"<<endl;
-    cout<<" 2| * | S | * | * | * | * | * | * | "<<endl;
-    cout<<" 3| * | * | S | * | * | * | * | * |"<<endl;
-    cout<<" 4| * | * | S | * | * | * | * | * |"<<endl;
-    cout<<" 5| * | * | S | * | * | S | S | * | "<<endl;
-    cout<<" 6| * | * | * | * | * | * | * | * |"<<endl;
-    cout<<" 7| * | * | * | * | S | * | * | * |"<<endl;
-    cout<<" 8| * | * | * | * | S | * | * | * |"<<endl<<endl;
+    cout<<" 1| * | S | * | C | C | C | C | C |"<<endl;
+    cout<<" 2| * | S | * | * | * | * | * | * | "<<endl; 
+    cout<<" 3| * | S | S | * | * | * | * | * |"<<endl;
+    cout<<" 4| D | * | S | * | * | * | * | * |"<<endl;
+    cout<<" 5| D | * | S | * | D | S | S | S | "<<endl;
+    cout<<" 6| D | * | * | * | D | * | * | * |"<<endl;
+    cout<<" 7| D | * | * | * | D | * | * | * |"<<endl;
+    cout<<" 8| * | * | * | * | D | * | * | * |"<<endl<<endl;
 
     cout<<"<Press any key to continue> "<<endl<<endl;
 
@@ -62,9 +62,9 @@ cout<<"=========================================================================
     system("read");
 cout<<"=================================================================================================================="<<endl<<endl;
     cout<<endl<<"The enemy have 3 different ship types. They are the following: "<<endl<<endl;
-    cout<<"Submarine - 3 squares"<<endl;
-    cout<<"Battleship - 4 squares"<<endl;
-    cout<<"Carrier - 5 squares"<<endl<<endl;
+    cout<<"Submarine (S) - 3 squares"<<endl;
+    cout<<"Destroyer (D) - 4 squares"<<endl;
+    cout<<"Carrier (C) - 5 squares"<<endl<<endl;
     cout<<"There are atleast 3 enemy ships being spotted"<<endl<<endl;
 
 
