@@ -53,10 +53,10 @@ int main()
    
     
     cout<<endl<<"=========================================================="<<endl<<endl;
-    cout<<"Choose Difficulty Level"<<endl<<endl;
-    cout<<"1. Rookie Seaman"<<endl; //easy
-    cout<<"2. Seasoned Veteran"<<endl;
-    cout<<"3. Legendary Admiral"<<endl;
+    cout<<"			Choose Difficulty Level"<<endl<<endl;
+    cout<<"			1. Rookie Seaman"<<endl; //easy
+    cout<<"			2. Seasoned Veteran"<<endl;
+    cout<<"			3. Legendary Admiral"<<endl;
     cin>> difficultylevel;
     Instruction(difficultylevel);
     cin.clear();
