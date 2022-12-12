@@ -49,16 +49,25 @@ int main()
     
   // call member function intro for the intro
   sleep(1);
+  bool difficultyValid=false;
   do {
     //show difficulty levels
-  
     
+    while(difficultyValid==false){
     cout<<endl<<"=========================================================="<<endl<<endl;
     cout<<"		Choose Difficulty Level"<<endl<<endl;
     cout<<"		1. Rookie Seaman"<<endl; //easy
     cout<<"		2. Seasoned Veteran"<<endl;
     cout<<"		3. Legendary Admiral"<<endl;
     cin>> difficultylevel;
+    if(difficultylevel==1|| difficultylevel==2|| difficultylevel==3)
+    {
+      break;
+    }
+    else{
+      cout<<"Enter again:"<<endl;
+    }
+    }
     Instruction(difficultylevel);
     cin.clear();
     cin.ignore();
