@@ -16,25 +16,6 @@
 
 using namespace std;
 
-//void whileCheck(char& a) {
-/*void whileCheck(char a){
-  char str;
-  cout << endl;
-  cin.clear();
-  cin.ignore(100,'\n');
-  cout << "Do you wish to do it again? Y/N" << endl;
-  cin >> a;
-  str=toupper(a);
-	//while(a != 'y' && a != 'Y' && a != 'n'&& a != 'N') {
-  while(str!='Y'||str!='N'){
-    cout << "Did you enter the correct response? If not, please enter your response again." << endl;
-	  cin.clear();
-    cin.ignore(100,'\n');
-	  cin >> a;
-    str=toupper(a);
-  }
- 
-}*/
 
 int main()
 {
@@ -85,7 +66,7 @@ int main()
       }
       
 
-      
+      cout<<"=========================================================="<<endl;
       if(objects.hity > 0 ) {
         cout <<" Previous shots: " <<endl;
         //linkedlist
@@ -107,7 +88,7 @@ int main()
       cout<< "You were defeated. Our entire navy was swiftly destroyed by the enemy retaliation. Our seas are left to the mercy of the enemy." << endl;
     }
     cout << endl;
-    //whileCheck(cont);
+    
     cout << "Do you wish to do it again? Y/N" << endl;
     cin >> cont;
     if(cont=='N'||cont=='n'){
@@ -119,7 +100,7 @@ int main()
       cin>>cont;
     }
   } while(cont == 'Y'||cont=='y');
-    //system ("pause");
+    
     
 }
 
