@@ -22,7 +22,7 @@ void Menu(){
     cout<<"================================================="<<endl;
     cout<<"================================================="<<endl;
 
-    cout<<"       <Press any key to continue>"<<endl;
+    cout<<"       <Press ENTER to continue>"<<endl;
     system("read");
 
     string username;
@@ -69,7 +69,7 @@ void Menu(){
         break;
         case 2:
         cout<<endl<<"        By the Navy Boys"<<endl<<endl<<endl;
-        cout<<"       <Press any key to return to Main Menu >"<<endl;
+        cout<<"       <Press ENTER to return to Main Menu >"<<endl;
         system("read");
         break;
         case 3:

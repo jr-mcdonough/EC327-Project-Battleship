@@ -202,10 +202,10 @@ void board::setCoords(char x, int y){
     if(checklinkedlist()){
       checkhit(hitx,hity);
     } else {
-      cout << "We have tried this location before, Admiral. Select another spot." << endl;
+      cout << ">>>REPORT<<<:We have tried this location before, Admiral. Select another spot." << endl;
     }
   } else {
-    cout << "The enemy is not within this area." << endl;
+    cout << ">>>ERROR<<< The enemy is NOT within this area. Please use the intel we have" << endl;
   }
 
 }
@@ -229,33 +229,33 @@ istream& getline (istream& obj, board& xxx)//overload getline operator
     stringstream yy(xxx.hitstr.substr(1));
     int y = 0; 
     if(isdigit(xxx.hitstr[0])!=0){
-            cout<<"Enter character then number please:"<<endl;
+            cout<<"Enter a LETTER  then a NUMBER please:"<<endl;
             throw(num);
       }
     yy >> y; 
     xxx.setCoords(xxx.hitstr[0], y);
 
   } else {
-    cout << "Adrmiral, please read the rules again. ";
+    cout << "INVALID INPUT";
   }
     
   return obj;
 }
 
 
-istream& operator>>(istream& obj, board& xxx)
+istream& operator>>(istream& obj, board& xloc)
 {
-  obj >> xxx.hitx >> xxx.hity;
+  obj >> xloc.hitx >> xloc.hity;
       
-
-      if(static_cast<int>(xxx.hitx-64) <= 32 + xxx.diffXSetter && xxx.hity <= xxx.diffYSetter ){
-        if(xxx.checklinkedlist()){
-          xxx.checkhit(xxx.hitx,xxx.hity);
+// check to see if the user input values are on the board/and if the spot has been hit previously.
+      if(static_cast<int>(xloc.hitx-64) <= 32 + xloc.diffXSetter && xloc.hity <= xloc.diffYSetter ){
+        if(xloc.checklinkedlist()){
+          xloc.checkhit(xloc.hitx,xloc.hity);
         } else {
-          cout << "We have tried this location before, Admiral. Select another spot." << endl;
+          cout << ">>>REPORT: We have tried this location before, Admiral. Select another spot.<<<" << endl;
         }
       } else {
-        cout << "The enemy is not within this area." << endl;
+        cout << ">>>ERROR: The enemy is not within this area, Admiral<<<" << endl;
       }
       return obj;
 }
@@ -287,7 +287,7 @@ ostream& operator<<(ostream& obj, const board& xxx)
 }
 
 void board::theConsole()
-{
+{//display ammo
 cout << endl << endl;
 cout << "Ammo: " << ammo;
 cout << setfill(' ') << setw(diffXSetter*2+5) << ' ' << "Hits: " << hit <<endl;     
@@ -311,7 +311,6 @@ void board::dolinkedlist()
      {
          last->link = newnode;
          last = newnode;
-         //cout << last->link << endl;
      }  
 }
 
@@ -321,7 +320,7 @@ void board::printlinkedlist()
  
  current = first;
  while (current != NULL)
-{   
+{   // show hit or miss
  switch(current->hom)
  {
   case 1:
@@ -337,7 +336,7 @@ void board::printlinkedlist()
 bool board::checklinkedlist(){
   nodeType *current;
   current = first;
-  //cout << hitx << endl;
+  
   while (current != NULL) {
     if(current->x == toupper(hitx) && current->y == hity){
       return false;

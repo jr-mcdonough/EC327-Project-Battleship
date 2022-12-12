@@ -6,10 +6,10 @@ void Instruction(int mode){//prints out the instruction
  cout<<"=================================================================================================================="<<endl<<endl;
  cout<<endl<<"Admiral, we have received intel that several enemy ships were spotted patrolling the waters of our country."<<endl<<endl;
  cout<<"As the commander of our navy, you are tasked with defending our sea by any means necessary."<<endl<<endl<<endl;
- cout<<"<Press any key to continue> "<<endl<<endl;
+ cout<<"<Press ENTER to continue> "<<endl<<endl;
     system("read");
     cout<<"=================================================================================================================="<<endl<<endl;
-    cout<<endl<<"Our friends in the airforce has indicated the location of where the enemy ships might be located."<<endl<<endl;
+    cout<<endl<<"Our friends in the Airforce has indicated the location of where the enemy ships might be located."<<endl<<endl;
      //show map
 
     cout<<"  | A | B | C | D | E | F | G | H |"<<endl;
@@ -24,7 +24,7 @@ void Instruction(int mode){//prints out the instruction
   
 
     cout<<"* means no ship or hidden ship."<<endl<<endl;
-    cout<<"<Press any key to continue> "<<endl;
+    cout<<"<Press ENTER to continue> "<<endl;
     system("read");
     cout<<"=================================================================================================================="<<endl<<endl;
     cout<<endl<<"If you manage to hit a ship, the spot will be represented with a letter. "<<endl<<endl;
@@ -40,7 +40,7 @@ void Instruction(int mode){//prints out the instruction
     cout<<" 7| D | * | * | * | D | * | * | * |"<<endl;
     cout<<" 8| * | * | * | * | D | * | * | * |"<<endl<<endl;
 
-    cout<<"<Press any key to continue> "<<endl<<endl;
+    cout<<"<Press ENTER to continue> "<<endl<<endl;
 
     system("read");
 cout<<"=================================================================================================================="<<endl<<endl;
@@ -57,7 +57,7 @@ cout<<"=========================================================================
     cout<<" 8| * | % | * | * | S | * | * | * |"<<endl<<endl;
 
 
-    cout<<"<Press any key to continue> "<<endl<<endl;
+    cout<<"<Press ENTER to continue> "<<endl<<endl;
 
     system("read");
 cout<<"=================================================================================================================="<<endl<<endl;
@@ -68,13 +68,13 @@ cout<<"=========================================================================
     cout<<"There are atleast 3 enemy ships being spotted"<<endl<<endl;
 
 
-    cout<<"<Press any key to continue> "<<endl<<endl;
+    cout<<"<Press ENTER to continue> "<<endl<<endl;
 
     system("read");
 cout<<"=================================================================================================================="<<endl<<endl;
     cout<<endl<<"Please note that the ships are only positioned vertically or horizontally in a straight line."<<endl<<endl;
 
-    cout<<"<Press any key to continue> "<<endl<<endl;
+    cout<<"<Press ENTER to continue> "<<endl<<endl;
 
     system("read");
 cout<<"=================================================================================================================="<<endl<<endl;
@@ -82,13 +82,13 @@ cout<<"=========================================================================
     if(mode == 1){
         cout<<endl<<"Admiral, your job is to find out the positions of all the enemy ships as quickly as possible."<<endl;
         cout<<"You are armed with 20 missiles to destroy the enemy."<<endl<<endl;
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
         cout<<endl<<"Good luck Admiral, the country awaits your victory."<<endl<<endl;
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         
     }else if(mode == 2){
@@ -97,20 +97,20 @@ cout<<"=========================================================================
         cout<<"Beware, the enemy is spreaded out over a wide area. "<<endl<<endl;
 
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
         cout<<endl<<"You are armed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
         
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
         cout<<endl<<"Good luck Admiral, the country awaits your victory."<<endl<<endl;
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
@@ -121,19 +121,19 @@ cout<<"=========================================================================
         cout<<"Beware, the enemy is spreaded out over a large area and can be anywhere."<<endl<<endl;
 
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
         cout<<endl<<"You are armed with 20 missiles to destroy the enemy. Use them wisely."<<endl<<endl;
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
         cout<<endl<<"Good luck Admiral, the country awaits your victory."<<endl<<endl;
 
-        cout<<"<Press any key to continue> "<<endl<<endl;
+        cout<<"<Press ENTER to continue> "<<endl<<endl;
 
         system("read");
 
