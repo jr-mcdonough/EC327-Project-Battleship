@@ -1,3 +1,5 @@
+//use make Play to compile.
+//the complied file is called Play
 
 #include "menu.h"
 #include "Instructions.h"
@@ -36,8 +38,8 @@ using namespace std;
 
 int main()
 {
-    Menu();
-    srand(time(NULL));
+    Menu();//prints out the menu of game
+    srand(time(NULL));//set seed
     int ans;
     int difficultylevel; // 1 is easy; 2 is medium; 3 is hard
     char cont;
@@ -59,7 +61,7 @@ int main()
     cout<<"		2. Seasoned Veteran"<<endl;
     cout<<"		3. Legendary Admiral"<<endl;
     cin>> difficultylevel;
-    Instruction(difficultylevel);
+    Instruction(difficultylevel);//input the the difficulty level
     cin.clear();
     cin.ignore();
 
@@ -68,7 +70,7 @@ int main()
       objects.initialize(difficultylevel);
     }
     else {
-      cout << "INVALID SELECTION" << endl;
+      cout << "INVALID SELECTION" << endl;//error checking
     }
     //check ammo and hits, if so end game.
     while(objects.ammo > 0 && objects.hits < 12) {

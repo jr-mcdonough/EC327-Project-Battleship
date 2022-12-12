@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-void Instruction(int mode){
+void Instruction(int mode){//prints out the instruction
  cout<<"=================================================================================================================="<<endl<<endl;
  cout<<endl<<"Admiral, we have received intel that several enemy ships were spotted patrolling the waters of our country."<<endl<<endl;
  cout<<"As the commander of our navy, you are tasked with defending our sea by any means necessary."<<endl<<endl<<endl;

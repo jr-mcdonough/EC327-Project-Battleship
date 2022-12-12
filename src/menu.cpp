@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void Menu(){
+void Menu(){// prints the intro and gui
 
 
     cout<<"================================================="<<endl;

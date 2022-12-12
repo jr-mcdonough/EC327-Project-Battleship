@@ -49,7 +49,7 @@ void board::populate()
        temp[row][col] = ' ';
 }
 
-void board::printBoard()
+void board::printBoard()//prints the map of battlefield with invisible ships
 {
      for(int row=0; row <=diffYSetter; row++)
      { 
@@ -70,7 +70,7 @@ void board::printBoard()
      }
 }
 
-void board::showActualBoard()
+void board::showActualBoard()//prints the map of battlefield with actual ships
 {
      for(int row=0; row <=diffYSetter; row++)
      { 
@@ -173,7 +173,7 @@ bool board::placeship(int x, int y, int dir, int size,int lvl,char t)
             return true;
         }
 
-void board::checkhit(char x, int y)
+void board::checkhit(char x, int y)//check if the ship is hit
 {
      x = toupper(x);
      if(temp[y][static_cast<int>(x-64)] == 'S'||temp[y][static_cast<int>(x-64)] == 'D'||temp[y][static_cast<int>(x-64)] == 'C')
@@ -194,7 +194,7 @@ void board::checkhit(char x, int y)
 
 
 
-void board::setCoords(char x, int y){
+void board::setCoords(char x, int y){//set coordinates
   hitx = x;
   hity = y;
 

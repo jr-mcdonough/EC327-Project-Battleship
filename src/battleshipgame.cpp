@@ -8,18 +8,19 @@ using namespace std;
 bool empty = false;
 int sent = 1;
 
-battleshipGame::battleshipGame()
+battleshipGame::battleshipGame()//initialize the ships, destroyer has 4 length and carrier 5
 :Destroyer(4), Carrier(5) 
 {                    
 }
 
-battleshipGame::~battleshipGame()
+battleshipGame::~battleshipGame()//destructor
 {
+     cout<<"Ship destructed.\n";
 }
 
 
 
-void battleshipGame::initialize(int lev)
+void battleshipGame::initialize(int lev)//initializes the game
 {
      cout << "Intializing level: " << lev << ". Battle field visual coming up..." << endl;
      
@@ -59,7 +60,7 @@ void battleshipGame::initialize(int lev)
 }
 
 
-void battleshipGame::theConsole()
+void battleshipGame::theConsole()//return the data 
 {
      hits = theBoard.returnhits();
      ammo = theBoard.returnammo();
