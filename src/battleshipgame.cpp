@@ -19,18 +19,18 @@ battleshipGame::~battleshipGame()
 
 
 
-void battleshipGame::initialize(int lev)
+void battleshipGame::initialize(int level)
 {
-     cout << "Intializing level: " << lev << ". Battle field visual coming up..." << endl;
+     cout << "Intializing level: " << level << ". Battle field visual coming up..." << endl;
      
-     theBoard.setBoard(lev);
+     theBoard.setBoard(level);
      theBoard.initializeBoard();
      theBoard.populate();
      theBoard.setmunitions();//resets the trys and hits or, sets them to their regular numbers. hits=0, ammo=1
      
     while(sent != 0)
      {
-     if(theBoard.placeship(Carrier.setx(),Carrier.sety(),Carrier.setHV(),Carrier.getsize(),lev,'C'))
+     if(theBoard.placeship(Carrier.setx(),Carrier.sety(),Carrier.setHV(),Carrier.getsize(),level,'C'))
      sent = 0;
      }
      cout << "Carrier presence spotted." << endl;
@@ -38,7 +38,7 @@ void battleshipGame::initialize(int lev)
 
     while(sent !=0)
     {
-     if(theBoard.placeship(Submarine.setx(),Submarine.sety(),Submarine.setHV(),Submarine.getsize(),lev,'S'))
+     if(theBoard.placeship(Submarine.setx(),Submarine.sety(),Submarine.setHV(),Submarine.getsize(),level,'S'))
      sent=0;
     }
      cout << "Submarine presence spotted." << endl;
@@ -46,7 +46,7 @@ void battleshipGame::initialize(int lev)
     
     while(sent !=0)
     {
-     if(theBoard.placeship(Destroyer.setx(),Destroyer.sety(),Destroyer.setHV(),Destroyer.getsize(),lev,'D'))
+     if(theBoard.placeship(Destroyer.setx(),Destroyer.sety(),Destroyer.setHV(),Destroyer.getsize(),level,'D'))
      sent=0;
     }
      cout << "Destroyer presence spotted." << endl;
