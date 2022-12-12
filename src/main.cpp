@@ -1,5 +1,3 @@
-//use make Play to compile.
-//the complied file is called Play
 
 #include "menu.h"
 #include "Instructions.h"
@@ -16,11 +14,30 @@
 
 using namespace std;
 
+//void whileCheck(char& a) {
+/*void whileCheck(char a){
+  char str;
+  cout << endl;
+  cin.clear();
+  cin.ignore(100,'\n');
+  cout << "Do you wish to do it again? Y/N" << endl;
+  cin >> a;
+  str=toupper(a);
+	//while(a != 'y' && a != 'Y' && a != 'n'&& a != 'N') {
+  while(str!='Y'||str!='N'){
+    cout << "Did you enter the correct response? If not, please enter your response again." << endl;
+	  cin.clear();
+    cin.ignore(100,'\n');
+	  cin >> a;
+    str=toupper(a);
+  }
+ 
+}*/
 
 int main()
 {
-    Menu();//prints out the menu of game
-    srand(time(NULL));//set seed
+    Menu();
+    srand(time(NULL));
     int ans;
     int difficultylevel; // 1 is easy; 2 is medium; 3 is hard
     char cont;
@@ -42,7 +59,7 @@ int main()
     cout<<"		2. Seasoned Veteran"<<endl;
     cout<<"		3. Legendary Admiral"<<endl;
     cin>> difficultylevel;
-    Instruction(difficultylevel);//input the the difficulty level
+    Instruction(difficultylevel);
     cin.clear();
     cin.ignore();
 
@@ -51,19 +68,28 @@ int main()
       objects.initialize(difficultylevel);
     }
     else {
-      cout << "INVALID SELECTION" << endl;//error checking
+      cout << "INVALID SELECTION" << endl;
     }
     //check ammo and hits, if so end game.
+    bool coordValid=false;
+    bool canBreak;
     while(objects.ammo > 0 && objects.hits < 12) {
       cout << endl << "INSERT FIRING POSITION. LETTER first (column), and then the NUMBER (row). SPACING BETWEEN THEM IS OPTIONAL" << endl;
       //cin>> abjects;
       cin.clear();
+      while(coordValid==false){
+        canBreak=true;
       try{
           getline(cin, objects);
       }
-      catch(string mystring){
-          getline(cin,objects);
+      catch(int myNum){
+        canBreak=false;
       }
+        if(canBreak==true){
+          break;
+        }
+      }
+     
       
 
       cout<<"=========================================================="<<endl;
@@ -88,7 +114,7 @@ int main()
       cout<< "You were defeated. Our entire navy was swiftly destroyed by the enemy retaliation. Our seas are left to the mercy of the enemy." << endl;
     }
     cout << endl;
-    
+    //whileCheck(cont);
     cout << "Do you wish to do it again? Y/N" << endl;
     cin >> cont;
     if(cont=='N'||cont=='n'){
@@ -100,7 +126,7 @@ int main()
       cin>>cont;
     }
   } while(cont == 'Y'||cont=='y');
-    
+    //system ("pause");
     
 }
 

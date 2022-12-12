@@ -8,19 +8,18 @@ using namespace std;
 bool empty = false;
 int sent = 1;
 
-battleshipGame::battleshipGame()//initialize the ships, destroyer has 4 length and carrier 5
+battleshipGame::battleshipGame()
 :Destroyer(4), Carrier(5) 
 {                    
 }
 
-battleshipGame::~battleshipGame()//destructor
+battleshipGame::~battleshipGame()
 {
-     cout<<"Ship destructed.\n";
 }
 
 
 
-void battleshipGame::initialize(int lev)//initializes the game
+void battleshipGame::initialize(int lev)
 {
      cout << "Intializing level: " << lev << ". Battle field visual coming up..." << endl;
      
@@ -60,7 +59,7 @@ void battleshipGame::initialize(int lev)//initializes the game
 }
 
 
-void battleshipGame::theConsole()//return the data 
+void battleshipGame::theConsole()
 {
      hits = theBoard.returnhits();
      ammo = theBoard.returnammo();
@@ -70,7 +69,7 @@ void battleshipGame::theConsole()//return the data
 istream& getline(istream& obj, battleshipGame& thisclass)
 {
     
-    getline(obj, thisclass.theBoard);
+    getline(obj, thisclass.theBoard);//pass to board override of getline
     
     thisclass.hity = thisclass.theBoard.returnhity();
 

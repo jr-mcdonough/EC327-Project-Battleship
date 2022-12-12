@@ -49,7 +49,7 @@ void board::populate()
        temp[row][col] = ' ';
 }
 
-void board::printBoard()//prints the map of battlefield with invisible ships
+void board::printBoard()
 {
      for(int row=0; row <=diffYSetter; row++)
      { 
@@ -70,7 +70,7 @@ void board::printBoard()//prints the map of battlefield with invisible ships
      }
 }
 
-void board::showActualBoard()//prints the map of battlefield with actual ships
+void board::showActualBoard()
 {
      for(int row=0; row <=diffYSetter; row++)
      { 
@@ -173,7 +173,7 @@ bool board::placeship(int x, int y, int dir, int size,int lvl,char t)
             return true;
         }
 
-void board::checkhit(char x, int y)//check if the ship is hit
+void board::checkhit(char x, int y)
 {
      x = toupper(x);
      if(temp[y][static_cast<int>(x-64)] == 'S'||temp[y][static_cast<int>(x-64)] == 'D'||temp[y][static_cast<int>(x-64)] == 'C')
@@ -194,7 +194,7 @@ void board::checkhit(char x, int y)//check if the ship is hit
 
 
 
-void board::setCoords(char x, int y){//set coordinates
+void board::setCoords(char x, int y){
   hitx = x;
   hity = y;
 
@@ -212,11 +212,11 @@ void board::setCoords(char x, int y){//set coordinates
 
 istream& getline (istream& obj, board& xxx)//overload getline operator
 {
-
+  int num=1;
   getline(obj, xxx.hitstr);
   if(xxx.hitstr.length()==0){
       cout<<"you entered nothing"<<endl;
-      throw(xxx.hitstr);
+      throw(num);
   }
   
   for(int i = 0; i < xxx.hitstr.length(); i++){
@@ -228,6 +228,10 @@ istream& getline (istream& obj, board& xxx)//overload getline operator
   if(xxx.hitstr.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890") > 0){
     stringstream yy(xxx.hitstr.substr(1));
     int y = 0; 
+    if(isdigit(xxx.hitstr[0])!=0){
+            cout<<"Enter character then number please:"<<endl;
+            throw(num);
+      }
     yy >> y; 
     xxx.setCoords(xxx.hitstr[0], y);
 
@@ -242,6 +246,7 @@ istream& getline (istream& obj, board& xxx)//overload getline operator
 istream& operator>>(istream& obj, board& xxx)
 {
   obj >> xxx.hitx >> xxx.hity;
+      
 
       if(static_cast<int>(xxx.hitx-64) <= 32 + xxx.diffXSetter && xxx.hity <= xxx.diffYSetter ){
         if(xxx.checklinkedlist()){

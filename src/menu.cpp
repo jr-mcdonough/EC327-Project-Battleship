@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void Menu(){// prints the intro and gui
+void Menu(){
 
 
     cout<<"================================================="<<endl;
@@ -54,25 +54,33 @@ void Menu(){// prints the intro and gui
     cout<<"-------------------------------------------------"<<endl<<endl<<endl;
     cout<<"“Anchors aweigh, my boys, anchors aweigh.”"<<endl;
     cout<<"       — Joyce Eilers & Bob Lowden"<<endl<<endl;
-
+    bool choiceValid=false;
+    while(choiceValid==false){
     cout<<"                  1.Play"<<endl;
     cout<<"                  2.Credits"<<endl;
     cout<<"                  3.Exit game"<<endl<<endl;
+    
     cout<<"          <Enter a number to proceed>"<<endl<<endl;
     cin>>choice;
     switch(choice){
         case 1:
-    cout<<endl<<"        Welcome, Admiral "<<username<<endl<<endl;;
-    break;
+        cout<<endl<<"        Welcome, Admiral "<<username<<endl<<endl;;
+        choiceValid=true;
+        break;
         case 2:
-    cout<<endl<<"        By the Navy Boys"<<endl<<endl<<endl;
-    cout<<"       <Press any key to return to Main Menu >"<<endl;
-    system("read");
-    break;
+        cout<<endl<<"        By the Navy Boys"<<endl<<endl<<endl;
+        cout<<"       <Press any key to return to Main Menu >"<<endl;
+        system("read");
+        break;
         case 3:
-    cout<<endl<<"        Until next time, Admiral !"<<endl;
-    exit(true);
-    break;
+        cout<<endl<<"        Until next time, Admiral !"<<endl;
+        exit(true);
+        choiceValid=true;
+        break;
+        default:
+        cout<<"Enter again:"<<endl;
+        break;
+    }
     }
     }while(choice == 2 || choice ==3);
     
