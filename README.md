@@ -15,6 +15,7 @@ Contents of each folder:
   - Project Architecture
   - Project timeline
   - Demo video .mov file
+  - Flowchart of program
 - misc: unsorted additional files used throughout the project
 - src: contains all files necessary to play the game, including Makefile
 
